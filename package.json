@@ -5,16 +5,21 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon index.js"
+    "build": "rimraf dist && mkdir dist && copyfiles -u 1 src/ dist/",
+    "serve": "cross-env NODE_ENV=production node dist/index.js",
+    "start": "cross-env NODE_ENV=production node dist/index.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.19.0",
+    "copyfiles": "^2.4.1",
     "cors": "^2.8.5",
+    "cross-env": "^7.0.3",
     "dotenv": "^9.0.2",
     "express": "^4.17.1",
     "mongoose": "^5.12.8",
-    "nodemon": "^2.0.7"
+    "nodemon": "^2.0.7",
+    "rimraf": "^3.0.2"
   }
 }
